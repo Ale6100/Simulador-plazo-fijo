@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family :'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+header {
+    margin-bottom: 10px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noTerminado {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-size: 0.75rem;
+    position: fixed;
+    left: 1vw;
+    top: 1vh;
+}
+
+header div {
+    width: 40px;
+}
+
+header div img {
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    margin-left: 10px;
+}
+
+main {
+    padding: 5px;
+    font-size: 1.3rem;
+}
+
+.duda {
+    margin-bottom: 10px;
+}
+
+.duda a {
+    text-decoration: none;
+    color: rgb(0, 0, 255);
+}
+
+.contenedor {
+    margin-bottom: 20px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    height: 225px;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+.tituloSimulacion {
+    font-size: 1.75rem;
+    font-weight: normal;
+}
+
+.tituloSimulacion span {
+    font-weight: bold;
+}
+
+.contenedor form {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contenedor form div input {
+    margin-top: 5px;
+    width: 200px;
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    font-size: 1.3rem;
+}
+
+.contenedor form button {
+    width: 100px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background-color: rgb(220, 220, 220);
+    transition: transform 0.1s;
+    font-size: 1.3rem;
+}
+
+.contenedor form button:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+.contenedor form button:active {
+    transform: scale(0.95);
+    background-color: rgb(200, 200, 200);
+}
+
+.contenedor div p {
+    text-align: center;
+}
+
+.contenedor .seUsoLaFormula {
+    text-align: start;
+    font-size: 1.2rem;
+}
+
+#teoria {
+    padding: 5px;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+#teoria h2 {
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.nota {
+    margin: 10px 0px;
+    font-size: 90%;
+}
+
+.nota span {
+    font-weight: bold;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) - Google Analytics-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6J8FCZQMSB"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6J8FCZQMSB');
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://img.icons8.com/fluency/48/000000/personal-growth.png" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Simulador plazo fijo</title>
+</head>
+<body>
+    <header>
+        <p class="noTerminado">Proyecto no terminado</p>
+        <div>
+            <img src="https://img.icons8.com/fluency/48/000000/personal-growth.png" alt="icono del sitio"/>
+        </div>
+        <h1>Simulador de plazo fijo</h1>
+    </header>
+
+    <main>
+        <p class="duda">Bienvenido! Usa las simulaciones que quieras. Si tienes alguna duda puedes leer la <a href="#teoria">teoría</a> o el <a href="https://github.com/Ale6100/simulador-plazo-fijo.git" target="_blank">código fuente</a> </p>
+        <div class="contenedor">
+            <h2 class="tituloSimulacion"> <span>Simulación 1</span>: Rendimiento en \(t\) días</h2>
+            <form id="rendTradic">
+                <div>
+                    <p>Inversión inicial ($)</p>
+                    <input type="text" id="inputInvInic-rendTradic">
+                </div>
+                <div>
+                    <p>Taza nominal anual (%)</p>
+                    <input type="text" id="inputTNA-rendTradic">
+                </div>
+                <div>
+                    <p>Días</p>
+                    <input type="text" id="inputTiempo-rendTradic">
+                </div>
+                <button type="submit">Calcular</button>
+            </form>
+            <div>
+                <p id="resultado-rendTradic">Coloque los valores solicitados y presione en "Calcular"</p>
+            </div>
+            <p class="seUsoLaFormula">Se usa la fórmula (2) de la teoría</p>
+        </div>
+
+        <div class="contenedor">
+            <h2 class="tituloSimulacion"> <span>Simulación 2</span>: Inversión inicial requerida</h2>
+            <form id="invInicialRequerida">
+                <div>
+                    <p>Rendimiento esperado ($)</p>
+                    <input type="text" id="rendEsp-invInicialRequerida">
+                </div>
+                <div>
+                    <p>Taza nominal anual (%)</p>
+                    <input type="text" id="inputTNA-invInicialRequerida">
+                </div>
+                <div>
+                    <p>Días</p>
+                    <input type="text" id="inputTiempo-invInicialRequerida">
+                </div>
+                <button type="submit">Calcular</button>
+            </form>
+            <div>
+                <p id="resultado-invInicialRequerida">Coloque los valores solicitados y presione en "Calcular"</p>
+            </div>
+            <p class="seUsoLaFormula">Se usa la fórmula (3) de la teoría</p>
+        </div>
+
+        <div class="contenedor">
+            <h2 class="tituloSimulacion"> <span>Simulación 3</span>: Interés compuesto</h2>
+            <form id="intCompuesto">
+                <div>
+                    <p>Inversión inicial ($)</p>
+                    <input type="text" id="inputInvInic-intCompuesto">
+                </div>
+                <div>
+                    <p>Taza nominal anual (%)</p>
+                    <input type="text" id="inputTNA-intCompuesto">
+                </div>
+                <div>
+                    <p>Meses</p>
+                    <input type="text" id="inputTiempo-intCompuesto">
+                </div>
+                <button type="submit">Calcular</button>
+            </form>
+            <div>
+                <p id="resultado-intCompuesto">Coloque los valores solicitados y presione en "Calcular"</p>
+            </div>
+            <p class="seUsoLaFormula">Se usa la fórmula (1) de la teoría, repetidas veces</p>
+        </div>
+
+        <div class="contenedor">
+            <h2 class="tituloSimulacion"> <span>Simulación 4</span>: Interés compuesto plus</h2>
+            <p>Próximamente...</p>
+        </div>
+
+        <div id="teoria">
+            <h2>Teoría</h2>
+
+            <p>Sea \(\alpha\) la taza nominal anual (o TNA) y \(x_o\) la inversión inicial, se puede deducir que en el día \(t\) el capital total será de $$x(t) = x_o + x_o*\alpha*0.01\frac{t}{365} = x_o\left( 1 + \frac{\alpha*0.01}{365}t \right) ~~~~~~~~~~ (1)$$ Si restamos \(x_o\) en ambos lados de la igualdad para ignorar la inversión inicial, obtenemos $$R(t) = x(t) - x_o = x_o\left( 1 + \frac{\alpha*0.01}{365}t \right) - x_o ~\Rightarrow~ R(t) = x_o\frac{\alpha*0.01}{365}t~~~~~~~~~~(2)$$ siendo \(R(t)\) el rendimiento generado hasta el día \(t\)</p>
+
+            <p class="nota"> <span>Nota</span>: observar que ambas expresiones son funciones lineales</p>
+
+            <p>Por otro lado, si despejamos \(x_o\) en función de \(t\) obtenemos la inversión inicial requerida para generar un rendimiento \(R\) al cabo de \(t\) días: $$x_o(t) = \frac{R}{\frac{\alpha*0.01}{365}t}~~~~~~~~~~(3)$$</p>
+
+            <p class="nota"> <span>Nota</span>: esta expresion adopta la forma de una función homográfica donde la asíntota horizontal se cruza con la vertical en el origen de coordenadas</p>
+        </div>
+    </main>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
