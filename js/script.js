@@ -21,6 +21,10 @@ const valoresIncorrectos = (texto) => {
 
 const redondear = (num) => +(Math.round(num + "e+2")  + "e-2"); // Redondea a dos decimales. Fuente: https://www.delftstack.com/es/howto/javascript/javascript-round-to-2-decimal-places/#uso-de-la-funci%C3%B3n-personalizada-para-redondear-un-n%C3%BAmero-a-2-decimales-en-javascript
 
+const obtenerCapitTotal = (xo, tna, t) => { // Fórmula (1)
+    return xo*(1+tna*0.01*t/365)
+}
+
 const obtenerRendTradic = (xo, tna, t) => { // Fórmula (2)
     xo = parseFloat(xo)
     tna = parseFloat(tna)
@@ -35,10 +39,17 @@ const obtenerInvInicial = (R, tna, t) => { // Fórmula (3)
     return redondear(R/(tna*0.01*t/365))
 }
 
-const obtenerCapitTotal = (xo, tna, t) => { // Fórmula (1)
+const obtenerCapitalHaciendoInteresCompuesto = (xo, tna, n) => { // Fórmula (4)
     xo = parseFloat(xo)
     tna = parseFloat(tna)
-    return xo*(1+tna*0.01*t/365)
+    return xo*(1+tna*0.01*30/365)**n
+}
+
+const obtenerPlazosNecesariosInteresCompuesto = (xo, tna, xn) => { // Fórmula (5). Esta expreción tiene restricciones (como que xo no debe ser cero), pero en otra parte del código me encargo de eso
+    xo = parseFloat(xo)
+    tna = parseFloat(tna)
+    xn = parseFloat(xn)
+    return Math.ceil( Math.log(xn/xo) / Math.log(1+tna*0.01*30/365) ) // La redondeo para arriba porque si por ejemplo el resultado nos da 7.3 plazos fijos, entonces se requerirán 8
 }
 
 const rendTradic = document.getElementById("rendTradic")
@@ -47,11 +58,15 @@ rendTradic.addEventListener("submit", (e) => {
     const invInic = document.getElementById("inputInvInic-rendTradic").value
     const tna = document.getElementById("inputTNA-rendTradic").value
     const dias = document.getElementById("inputTiempo-rendTradic").value
+
     const pResultado = document.getElementById("resultado-rendTradic")
     const resultado = obtenerRendTradic(invInic, tna, dias)
 
     if ((invInic+tna+dias).includes(",")) {
         valoresIncorrectos("Los valores no deben tener comas! si quieres decimales puedes poner puntos")
+
+    } else if ((invInic+tna+dias).includes("-")) {
+        valoresIncorrectos("Los valores no deben ser negativos!")
 
     } else if (isNaN(resultado)){
         valoresIncorrectos("Valores incorrectos! por favor revísalos")
@@ -67,47 +82,113 @@ invInicialRequerida.addEventListener("submit", (e) => {
     const rendimiento = document.getElementById("rendEsp-invInicialRequerida").value
     const tna = document.getElementById("inputTNA-invInicialRequerida").value
     const dias = document.getElementById("inputTiempo-invInicialRequerida").value
+
     const pResultado = document.getElementById("resultado-invInicialRequerida")
     const resultado = obtenerInvInicial(rendimiento, tna, dias)
 
     if ((rendimiento+tna+dias).includes(",")) {
         valoresIncorrectos("Los valores no deben tener comas! si quieres decimales puedes poner puntos")
 
+    } else if ((rendimiento+tna+dias).includes("-")) {
+        valoresIncorrectos("Los valores no deben ser negativos!")
+
     } else if (isNaN(resultado)){
         valoresIncorrectos("Valores incorrectos! por favor revísalos")
         
     } else {
-        pResultado.innerText = `Para obtener $${rendimiento} de rendimiento en ${dias} días con una TNA del ${tna}% es necesario aportar con una inversión inicial de $${resultado}`
+        pResultado.innerText = `Para obtener $${rendimiento} de rendimiento en ${dias} días con una TNA de ${tna}%, es necesario aportar con una inversión inicial de $${resultado}`
     }
 })
 
 const intCompuesto = document.getElementById("intCompuesto")
 intCompuesto.addEventListener("submit", (e) => {
     e.preventDefault()
-    const invInic = parseFloat(document.getElementById("inputInvInic-intCompuesto").value)
-    const tna = parseFloat(document.getElementById("inputTNA-intCompuesto").value)
-    const meses = parseInt(document.getElementById("inputTiempo-intCompuesto").value)
+    const invInic = document.getElementById("inputInvInic-intCompuesto").value
+    const tna = document.getElementById("inputTNA-intCompuesto").value
+    const plazos = parseInt(document.getElementById("inputPlazos-intCompuesto").value) // Se necesita un número natural pero si alguien pone "10,6" o "10.6" plazos por ejemplo, me quedo con el 10 y luego se anuncia en pResultado la cantidad de plazos que se consideró
+
     const pResultado = document.getElementById("resultado-intCompuesto")
+    const resultado = obtenerCapitalHaciendoInteresCompuesto(invInic, tna, plazos)
 
-    const invInic_copia = document.getElementById("inputInvInic-intCompuesto").value
-    const tna_copia = document.getElementById("inputTNA-intCompuesto").value
-
-    let resultado
-    for (let i=0; i<meses; i++) {
-        if (i===0) {
-            resultado = obtenerCapitTotal(invInic, tna, 30)
-        } else {
-            resultado = redondear(obtenerCapitTotal(resultado, tna, 30))
-        }
-    }
-
-    if ((invInic_copia+tna_copia).includes(",")) {
+    if ((invInic+tna).includes(",")) {
         valoresIncorrectos("Los valores no deben tener comas! si quieres decimales puedes poner puntos")
+
+    } else if ((invInic+tna+plazos.toString()).includes("-")) {
+        valoresIncorrectos("Los valores no deben ser negativos!")
 
     } else if (isNaN(resultado)){
         valoresIncorrectos("Valores incorrectos! por favor revísalos")
         
     } else {
-        pResultado.innerText = `El interés compuesto en ${meses} meses de 30 días c/u considerando una TNA de ${tna}% y una inversión inicial de $${invInic} es de $${redondear(resultado-invInic)}. El capital total final es de $${redondear(resultado)}`
+        pResultado.innerText = `El interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}% y una inversión inicial de $${invInic} es de $${redondear(resultado-invInic)}. El capital total final es de $${redondear(resultado)}`
+    }
+})
+
+const plazosNecesariosIntComp = document.getElementById("plazosNecesariosIntComp")
+plazosNecesariosIntComp.addEventListener("submit", (e) => {
+    e.preventDefault()
+    const invInic = document.getElementById("inputInvInic-plazosNecesariosIntComp").value
+    const tna = document.getElementById("inputTNA-plazosNecesariosIntComp").value
+    const capitalFinal = document.getElementById("inputCapitalFinal-plazosNecesariosIntComp").value
+
+    const pResultado = document.getElementById("resultado-plazosNecesariosIntComp")
+    const resultado = obtenerPlazosNecesariosInteresCompuesto(invInic, tna, capitalFinal)
+
+    if ((invInic+tna+capitalFinal).includes(",")) {
+        valoresIncorrectos("Los valores no deben tener comas! si quieres decimales puedes poner puntos")
+
+    } else if ((invInic+tna+capitalFinal).includes("-")) {
+        valoresIncorrectos("Los valores no deben ser negativos!")
+
+    } else if (invInic == 0) {
+        valoresIncorrectos("En esta simulación la inversión inicial no puede ser cero!")
+    
+    } else if (tna == 0) {
+        valoresIncorrectos("En esta simulación la tasa nominal anual no puede ser cero!")
+
+    } else if (parseFloat(invInic) > parseFloat(capitalFinal)) {
+        valoresIncorrectos("La inversión inicial no puede ser más grande que el capital final!")
+    
+    } else if (isNaN(resultado)){
+        valoresIncorrectos("Valores incorrectos! por favor revísalos")
+        
+    } else {
+        pResultado.innerText = `Considerando una TNA de ${tna}% y una inversión inicial de $${invInic}, haciendo interés compuesto se superan los $${capitalFinal} al cabo de ${resultado} plazos de 30 días c/u (${redondear(resultado*30/365)} años)`
+    }
+})
+
+const intCompuestoPlus = document.getElementById("intCompuestoPlus")
+intCompuestoPlus.addEventListener("submit", (e) => {
+    e.preventDefault()
+    const invInic = parseFloat(document.getElementById("inputInvInic-intCompuestoPlus").value)
+    const tna = parseFloat(document.getElementById("inputTNA-intCompuestoPlus").value)
+    const plazos = parseInt(document.getElementById("inputPlazos-intCompuestoPlus").value)
+    const invMensual = parseFloat(document.getElementById("inputInvMensual-intCompuestoPlus").value)
+    const pResultado = document.getElementById("resultado-intCompuestoPlus")
+
+    const invInic_copia = document.getElementById("inputInvInic-intCompuestoPlus").value
+    const tna_copia = document.getElementById("inputTNA-intCompuestoPlus").value
+    const invMensual_copia = document.getElementById("inputInvMensual-intCompuestoPlus").value
+
+    let resultado
+    for (let i=0; i<plazos; i++) {
+        if (i===0) {
+            resultado = obtenerCapitTotal(invInic, tna, 30)
+        } else {
+            resultado = obtenerCapitTotal(resultado+invMensual, tna, 30)
+        }
+    }
+
+    if ((invInic_copia+tna_copia+invMensual_copia).includes(",")) {
+        valoresIncorrectos("Los valores no deben tener comas! si quieres decimales puedes poner puntos")
+
+    } else if ((invInic_copia+tna_copia+invMensual_copia+plazos.toString()).includes("-")) {
+        valoresIncorrectos("Los valores no deben ser negativos!")
+
+    } else if (isNaN(resultado)){
+        valoresIncorrectos("Valores incorrectos! por favor revísalos")
+        
+    } else {
+        pResultado.innerText = `Haciendo interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}%, una inversión inicial de $${invInic} y un agregado de $${invMensual} mensuales (a partir del segundo plazo) el capital total final es de $${redondear(resultado)}`
     }
 })
