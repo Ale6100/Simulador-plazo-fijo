@@ -72,7 +72,7 @@ rendTradic.addEventListener("submit", (e) => {
         valoresIncorrectos("Valores incorrectos! por favor revísalos")
 
     } else {
-        pResultado.innerText = `El rendimiento en ${dias} días considerando una TNA de ${tna}%, y una inversión inicial de $${invInic} es de $${resultado}`
+        pResultado.innerHTML = `<p>El rendimiento en ${dias} días considerando una TNA de ${tna}%, y una inversión inicial de $${invInic} es de <span class="resultadoNegrita">$${resultado}</span></p>`
     }
 })
 
@@ -96,7 +96,7 @@ invInicialRequerida.addEventListener("submit", (e) => {
         valoresIncorrectos("Valores incorrectos! por favor revísalos")
         
     } else {
-        pResultado.innerText = `Para obtener $${rendimiento} de rendimiento en ${dias} días con una TNA de ${tna}%, es necesario aportar con una inversión inicial de $${resultado}`
+        pResultado.innerHTML = `<p>Para obtener $${rendimiento} de rendimiento en ${dias} días con una TNA de ${tna}%, es necesario aportar con una inversión inicial de <span class="resultadoNegrita">$${resultado}</span></p>`
     }
 })
 
@@ -120,7 +120,7 @@ intCompuesto.addEventListener("submit", (e) => {
         valoresIncorrectos("Valores incorrectos! por favor revísalos")
         
     } else {
-        pResultado.innerText = `El interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}% y una inversión inicial de $${invInic} es de $${redondear(resultado-invInic)}. El capital total final es de $${redondear(resultado)}`
+        pResultado.innerHTML = `<p>El interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}% y una inversión inicial de $${invInic} es de <span class="resultadoNegrita">$${redondear(resultado-invInic)}</span>. El capital total final es de <span class="resultadoNegrita">$${redondear(resultado)}</span></p>`
     }
 })
 
@@ -153,7 +153,7 @@ plazosNecesariosIntComp.addEventListener("submit", (e) => {
         valoresIncorrectos("Valores incorrectos! por favor revísalos")
         
     } else {
-        pResultado.innerText = `Considerando una TNA de ${tna}% y una inversión inicial de $${invInic}, haciendo interés compuesto se superan los $${capitalFinal} al cabo de ${resultado} plazos de 30 días c/u (${redondear(resultado*30/365)} años)`
+        pResultado.innerHTML = `<p>Considerando una TNA de ${tna}% y una inversión inicial de $${invInic}, haciendo interés compuesto se superan los $${capitalFinal} al cabo de <span class="resultadoNegrita">${resultado} plazos</span> de 30 días c/u (<span class="resultadoNegrita">${redondear(resultado*30/365)} años</span>)</p>`
     }
 })
 
@@ -169,6 +169,8 @@ intCompuestoPlus.addEventListener("submit", (e) => {
     const invInic_copia = document.getElementById("inputInvInic-intCompuestoPlus").value
     const tna_copia = document.getElementById("inputTNA-intCompuestoPlus").value
     const invMensual_copia = document.getElementById("inputInvMensual-intCompuestoPlus").value
+
+    const capitalAportado = invInic + (plazos-1)*invMensual
 
     let resultado
     for (let i=0; i<plazos; i++) {
@@ -189,6 +191,51 @@ intCompuestoPlus.addEventListener("submit", (e) => {
         valoresIncorrectos("Valores incorrectos! por favor revísalos")
         
     } else {
-        pResultado.innerText = `Haciendo interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}%, una inversión inicial de $${invInic} y un agregado de $${invMensual} mensuales (a partir del segundo plazo) el capital total final es de $${redondear(resultado)}`
+        pResultado.innerHTML = `<p>Haciendo interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}%, una inversión inicial de $${invInic} y un agregado de $${invMensual} mensuales (a partir del segundo plazo) el capital total final es de <span class="resultadoNegrita">$${redondear(resultado)}</span>.\nCapital total aportado: <span class="resultadoNegrita">$${redondear(capitalAportado)}</span> - Intereses generados: <span class="resultadoNegrita">$${redondear(resultado-capitalAportado)}</span></p>`
+    }
+})
+
+const plazosNecesariosIntCompPlus = document.getElementById("plazosNecesariosIntCompPlus")
+plazosNecesariosIntCompPlus.addEventListener("submit", (e) => {
+    e.preventDefault()
+    
+    const invInic = parseFloat(document.getElementById("inputInvInic-plazosNecesariosIntCompPlus").value)
+    const tna = parseFloat(document.getElementById("inputTNA-plazosNecesariosIntCompPlus").value)
+    const capitalFinal = parseFloat(document.getElementById("inputCapitalFinal-plazosNecesariosIntCompPlus").value)
+    const invMensual = parseFloat(document.getElementById("inputInvMensual-plazosNecesariosIntCompPlus").value)
+    const pResultado = document.getElementById("resultado-plazosNecesariosIntCompPlus")
+
+    const invInic_copia = document.getElementById("inputInvInic-plazosNecesariosIntCompPlus").value
+    const tna_copia = document.getElementById("inputTNA-plazosNecesariosIntCompPlus").value
+    const capitalFinal_copia = parseFloat(document.getElementById("inputCapitalFinal-plazosNecesariosIntCompPlus").value)
+    const invMensual_copia = document.getElementById("inputInvMensual-plazosNecesariosIntCompPlus").value
+
+    const algunValorNoNumerico = isNaN(invInic) || isNaN(tna) || isNaN(capitalFinal) || isNaN(invMensual) // Devuelve true si algún valor ingresado no es un número
+
+    let cantPlazos = 0
+    let capitalTotal = 0
+
+    if (algunValorNoNumerico === false) {
+        while (capitalTotal <= capitalFinal) { // Itera hasta que la cantidad de plazos sean los necesarios como para que el capital total sea mayor al capitalFinal solicitado
+            if (cantPlazos === 0) {
+                capitalTotal = obtenerCapitTotal(invInic, tna, 30)
+            } else {
+                capitalTotal = obtenerCapitTotal(capitalTotal+invMensual, tna, 30)
+            }
+            cantPlazos++
+        }
+    }
+
+    if ((invInic_copia+tna_copia+capitalFinal_copia+invMensual_copia).includes(",")) {
+        valoresIncorrectos("Los valores no deben tener comas! si quieres decimales puedes poner puntos")
+
+    } else if ((invInic_copia+tna_copia+capitalFinal_copia+invMensual_copia).includes("-")) {
+        valoresIncorrectos("Los valores no deben ser negativos!")
+
+    } else if (algunValorNoNumerico) {
+        valoresIncorrectos("Valores incorrectos! por favor revísalos")
+        
+    } else {
+        pResultado.innerHTML = `<p>Haciendo interés compuesto considerando una TNA de ${tna}%, una inversión inicial de $${invInic}, y agregándole además $${invMensual}  mensuales, se superan los $${capitalFinal} después de <span class="resultadoNegrita">${cantPlazos} plazos</span> de 30 días c/u (<span class="resultadoNegrita">${redondear(cantPlazos*30/365)} años</span>)</p>`
     }
 })

@@ -27,7 +27,7 @@
     </header>
 
     <main>
-        <p class="duda">Bienvenido! Utiliza las simulaciones que más te convenga. Si tienes alguna duda puedes leer la <a href="#teoria">teoría</a> o el <a href="https://github.com/Ale6100/simulador-plazo-fijo.git" target="_blank">código fuente</a>.</p>
+        <p class="duda">Bienvenido! Utiliza las simulaciones que más te convenga. Puedes consultar la TNA <a href="https://www.bcra.gob.ar/BCRAyVos/Plazos_fijos_online.asp" target="_blank">aquí</a>. Si tienes alguna duda puedes leer la <a href="#teoria">teoría</a> o el <a href="https://github.com/Ale6100/simulador-plazo-fijo.git" target="_blank">código fuente</a>.</p>
         <div class="contenedor">
             <h2 class="tituloSimulacion"> <span>Simulación 1</span>: Rendimiento en \(t\) días</h2>
             <form id="rendTradic">
@@ -37,7 +37,7 @@
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-rendTradic" placeholder="Ej: 40">
+                    <input type="text" id="inputTNA-rendTradic" placeholder="Ej: 55">
                 </div>
                 <div>
                     <p>Días</p>
@@ -60,7 +60,7 @@
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-invInicialRequerida" placeholder="Ej: 40">
+                    <input type="text" id="inputTNA-invInicialRequerida" placeholder="Ej: 55">
                 </div>
                 <div>
                     <p>Días</p>
@@ -83,10 +83,10 @@
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-intCompuesto" placeholder="Ej: 40">
+                    <input type="text" id="inputTNA-intCompuesto" placeholder="Ej: 55">
                 </div>
                 <div>
-                    <p>Plazos fijos</p>
+                    <p>Plazos fijos (30 días c/u)</p>
                     <input type="text" id="inputPlazos-intCompuesto" placeholder="Ej: 12">
                 </div>
                 <button type="submit">Calcular</button>
@@ -106,7 +106,7 @@
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-plazosNecesariosIntComp" placeholder="Ej: 40">
+                    <input type="text" id="inputTNA-plazosNecesariosIntComp" placeholder="Ej: 55">
                 </div>
                 <div>
                     <p>Capital final ($)</p>
@@ -129,10 +129,10 @@
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-intCompuestoPlus" placeholder="Ej: 40">
+                    <input type="text" id="inputTNA-intCompuestoPlus" placeholder="Ej: 55">
                 </div>
                 <div>
-                    <p>Plazos fijos</p>
+                    <p>Plazos fijos (30 días c/u)</p>
                     <input type="text" id="inputPlazos-intCompuestoPlus" placeholder="Ej: 12">
                 </div>
                 <div>
@@ -144,9 +144,37 @@
             <div>
                 <p id="resultado-intCompuestoPlus">Coloque los valores solicitados y presione en "Calcular"</p>
             </div>
-            <p class="seUsoLaFormula">¿Qué sucede si queremos hacer interés compuesto pero todos los meses agregamos un poquito más en el plazo para ayudarlo a crecer? Por ejemplo querés hacer interés compuesto con una inversión inicial de $100000 pero en vez de dejar que crezca sólo, decides aportar todos los meses $3000. Esta simulación te ayuda a predecir tu capital final con este método.</p>
+            <p class="seUsoLaFormula">¿Qué sucede si queremos hacer interés compuesto pero todos los meses agregamos un poquito más en el plazo para ayudarlo a crecer? Por ejemplo querés hacer interés compuesto con una inversión inicial de $100000 pero en vez de dejar que crezca sólo, decides aportar todos los meses $3000. Esta simulación te ayuda a predecir tu capital final utilizando este método.</p>
 
             <p class="seUsoLaFormula">Se usa la fórmula (<span>1</span>) de la teoría repetidas veces y agregando una inversión mensual fija a partir del segundo plazo</p>
+        </div>
+
+        <div class="contenedor">
+            <h2 class="tituloSimulacion"> <span>Simulación 6</span>: Plazos fijos necesarios haciendo interés compuesto plus</h2>
+            <form id="plazosNecesariosIntCompPlus">
+                <div>
+                    <p>Inversión inicial ($)</p>
+                    <input type="text" id="inputInvInic-plazosNecesariosIntCompPlus" placeholder="Ej: 100000">
+                </div>
+                <div>
+                    <p>Tasa nominal anual (%)</p>
+                    <input type="text" id="inputTNA-plazosNecesariosIntCompPlus" placeholder="Ej: 55">
+                </div>
+                <div>
+                    <p>Capital final ($)</p>
+                    <input type="text" id="inputCapitalFinal-plazosNecesariosIntCompPlus" placeholder="Ej: 200000">
+                </div>
+                <div>
+                    <p>Aporte mensual ($)</p>
+                    <input type="text" id="inputInvMensual-plazosNecesariosIntCompPlus" placeholder="Ej: 3000">
+                </div>
+                <button type="submit">Calcular</button>
+            </form>
+            <div>
+                <p id="resultado-plazosNecesariosIntCompPlus">Coloque los valores solicitados y presione en "Calcular"</p>
+            </div>
+
+            <p class="seUsoLaFormula">Se usa la fórmula (<span>1</span>) repetidas veces hasta encontrar el valor que cumpla con la condición pedida</p>
         </div>
 
         <div id="teoria">
@@ -171,7 +199,7 @@
         <p id="creditos">Desarrollado por <a href="https://www.linkedin.com/in/alejandro-portaluppi/" target="_blank">Alejandro P</a></p>
     </main>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> <!-- Para que funcione la escritura LaTeX -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./js/script.js"></script>
 </body>
