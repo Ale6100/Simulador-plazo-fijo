@@ -1,17 +1,5 @@
 "use strict";
 
-
-/* 
-
-
-
-    ----- Si estás leyendo esto NO TE ASUSTES en el siguiente commit voy a optimizar todo el código -----
-
-
-
-*/
-
-
 const valoresIncorrectos = (texto) => {
     Toastify({
         text: texto,

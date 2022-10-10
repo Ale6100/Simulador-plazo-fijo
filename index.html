@@ -33,15 +33,15 @@
             <form id="rendTradic">
                 <div>
                     <p>Inversión inicial ($)</p>
-                    <input type="text" id="inputInvInic-rendTradic" placeholder="Ej: 100000" value="100000">
+                    <input type="text" id="inputInvInic-rendTradic" placeholder="Ej: 100000">
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-rendTradic" placeholder="Ej: 55" value="55">
+                    <input type="text" id="inputTNA-rendTradic" placeholder="Ej: 55">
                 </div>
                 <div>
                     <p>Días</p>
-                    <input type="text" id="inputTiempo-rendTradic" placeholder="Ej: 30" value="30">
+                    <input type="text" id="inputTiempo-rendTradic" placeholder="Ej: 30">
                 </div>
                 <button type="submit">Calcular</button>
             </form>
@@ -56,15 +56,15 @@
             <form id="invRequerida">
                 <div>
                     <p>Rendimiento esperado ($)</p>
-                    <input type="text" id="rendEsp-invRequerida" placeholder="Ej: 1000" value="1000">
+                    <input type="text" id="rendEsp-invRequerida" placeholder="Ej: 1000">
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-invRequerida" placeholder="Ej: 55" value="55">
+                    <input type="text" id="inputTNA-invRequerida" placeholder="Ej: 55">
                 </div>
                 <div>
                     <p>Días</p>
-                    <input type="text" id="inputTiempo-invRequerida" placeholder="Ej: 30" value="30">
+                    <input type="text" id="inputTiempo-invRequerida" placeholder="Ej: 30">
                 </div>
                 <button type="submit">Calcular</button>
             </form>
@@ -79,15 +79,15 @@
             <form id="intCompuesto">
                 <div>
                     <p>Inversión inicial ($)</p>
-                    <input type="text" id="inputInvInic-intCompuesto" placeholder="Ej: 100000" value="100000">
+                    <input type="text" id="inputInvInic-intCompuesto" placeholder="Ej: 100000">
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-intCompuesto" placeholder="Ej: 55" value="55">
+                    <input type="text" id="inputTNA-intCompuesto" placeholder="Ej: 55">
                 </div>
                 <div>
                     <p>Plazos fijos (30 días c/u)</p>
-                    <input type="text" id="inputPlazos-intCompuesto" placeholder="Ej: 12" value="12">
+                    <input type="text" id="inputPlazos-intCompuesto" placeholder="Ej: 12">
                 </div>
                 <button type="submit">Calcular</button>
             </form>
@@ -102,21 +102,21 @@
             <form id="plazosNecesariosIntComp">
                 <div>
                     <p>Inversión inicial ($)</p>
-                    <input type="text" id="inputInvInic-plazosNecesariosIntComp" placeholder="Ej: 100000" value="100000">
+                    <input type="text" id="inputInvInic-plazosNecesariosIntComp" placeholder="Ej: 100000">
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-plazosNecesariosIntComp" placeholder="Ej: 55" value="55">
+                    <input type="text" id="inputTNA-plazosNecesariosIntComp" placeholder="Ej: 55">
                 </div>
                 <div>
                     <p>Capital final ($)</p>
-                    <input type="text" id="inputCapitalFinal-plazosNecesariosIntComp" placeholder="Ej: 200000" value="200000">
+                    <input type="text" id="inputCapitalFinal-plazosNecesariosIntComp" placeholder="Ej: 200000">
                 </div>
                 <button type="submit">Calcular</button>
             </form>
-            <div>
-                <p id="resultado-plazosNecesariosIntComp">Coloque los valores solicitados y presione en "Calcular"</p>
-            </div>
+
+            <p id="resultado-plazosNecesariosIntComp">Coloque los valores solicitados y presione en "Calcular"</p>
+
             <p class="seUsoLaFormula">Se usa la fórmula (<span>5</span>) de la teoría y luego se aplica la función techo (se redondea para arriba) ya que si por ejemplo el resultado es 6.8 plazos, en realidad serían 7</p>
         </div>
 
@@ -125,19 +125,19 @@
             <form id="intCompuestoPlus">
                 <div>
                     <p>Inversión inicial ($)</p>
-                    <input type="text" id="inputInvInic-intCompuestoPlus" placeholder="Ej: 100000" value="100000">
+                    <input type="text" id="inputInvInic-intCompuestoPlus" placeholder="Ej: 100000">
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-intCompuestoPlus" placeholder="Ej: 55" value="55">
+                    <input type="text" id="inputTNA-intCompuestoPlus" placeholder="Ej: 55">
                 </div>
                 <div>
                     <p>Plazos fijos (30 días c/u)</p>
-                    <input type="text" id="inputPlazos-intCompuestoPlus" placeholder="Ej: 12" value="12">
+                    <input type="text" id="inputPlazos-intCompuestoPlus" placeholder="Ej: 12">
                 </div>
                 <div>
                     <p>Aporte mensual ($)</p>
-                    <input type="text" id="inputInvMensual-intCompuestoPlus" placeholder="Ej: 3000" value="3000">
+                    <input type="text" id="inputInvMensual-intCompuestoPlus" placeholder="Ej: 3000">
                 </div>
                 <button type="submit">Calcular</button>
             </form>
@@ -154,25 +154,24 @@
             <form id="plazosNecesariosIntCompPlus">
                 <div>
                     <p>Inversión inicial ($)</p>
-                    <input type="text" id="inputInvInic-plazosNecesariosIntCompPlus" placeholder="Ej: 100000" value="100000">
+                    <input type="text" id="inputInvInic-plazosNecesariosIntCompPlus" placeholder="Ej: 100000">
                 </div>
                 <div>
                     <p>Tasa nominal anual (%)</p>
-                    <input type="text" id="inputTNA-plazosNecesariosIntCompPlus" placeholder="Ej: 55" value="55">
+                    <input type="text" id="inputTNA-plazosNecesariosIntCompPlus" placeholder="Ej: 55">
                 </div>
                 <div>
                     <p>Capital final ($)</p>
-                    <input type="text" id="inputCapitalFinal-plazosNecesariosIntCompPlus" placeholder="Ej: 200000" value="200000">
+                    <input type="text" id="inputCapitalFinal-plazosNecesariosIntCompPlus" placeholder="Ej: 200000">
                 </div>
                 <div>
                     <p>Aporte mensual ($)</p>
-                    <input type="text" id="inputInvMensual-plazosNecesariosIntCompPlus" placeholder="Ej: 3000" value="3000">
+                    <input type="text" id="inputInvMensual-plazosNecesariosIntCompPlus" placeholder="Ej: 3000">
                 </div>
                 <button type="submit">Calcular</button>
             </form>
-            <div>
-                <p id="resultado-plazosNecesariosIntCompPlus">Coloque los valores solicitados y presione en "Calcular"</p>
-            </div>
+
+            <p id="resultado-plazosNecesariosIntCompPlus">Coloque los valores solicitados y presione en "Calcular"</p>
 
             <p class="seUsoLaFormula">Se usa la fórmula (<span>1</span>) repetidas veces hasta encontrar el valor que cumpla con la condición pedida</p>
         </div>
