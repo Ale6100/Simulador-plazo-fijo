@@ -103,6 +103,7 @@ main {
 }
 
 .contenedor form button:active {
+    border: 2px solid rgb(0, 0, 0);
     transform: scale(0.95);
     background-color: rgb(200, 200, 200);
 }
@@ -163,4 +164,25 @@ main {
 .resultadoNegrita {
     color: green;
     font-weight: 700;
+}
+
+.botonGrafico {
+    margin-top: 10px;
+    width: 125px;
+    height: 40px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    background-color: rgb(220, 220, 220);
+    transition: transform 0.1s;
+    font-size: 1.3rem;
+}
+
+.botonGrafico:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+.botonGrafico:active {
+    border: 2px solid rgb(0, 0, 0);
+    transform: scale(0.95);
+    background-color: rgb(200, 200, 200);
 }
