@@ -9,7 +9,6 @@ const propComunes = {
         plazos: "inputPlazos",
         capFinal: "inputCapitalFinal",
         aporte: "inputInvMensual"
-        
     },
     texto: {
         invInic: "Inversión inicial ($)",
@@ -38,10 +37,9 @@ const contenedores = [
             textX: "Tiempo (días)",
             textY: "Rendimiento ($)"
         }
-        
     },
     {
-        titulo: "<span>Simulación 2</span>: Inversión requerida",
+        titulo: "<span>Simulación 2</span>: Inversión necesaria para obtener un rendimiento esperado",
         id: "invRequerida",
         placeholder: {
             rendEsp: "1000",
@@ -57,7 +55,7 @@ const contenedores = [
         }
     },
     {
-        titulo: "<span>Simulación 3</span>: Interés compuesto",
+        titulo: "<span>Simulación 3</span>: Interés compuesto (renovación de capital + interés)",
         id: "intCompuesto",
         placeholder: {
             invInic: "100000",
@@ -97,7 +95,7 @@ const contenedores = [
             plazos: "12",
             aporte: "3000"
         },
-        comentario: "¿Qué sucede si queremos hacer interés compuesto pero todos los meses agregamos un poquito más en el plazo para ayudarlo a crecer? Por ejemplo querés hacer interés compuesto con una inversión inicial de $100000 pero en vez de dejar que crezca sólo, decides aportar todos los meses $3000. Esta simulación te ayuda a predecir tu capital final utilizando este método. Se usa la fórmula (<span>1</span>) de la teoría repetidas veces y agregando una inversión mensual fija a partir del segundo plazo",
+        comentario: "¿Qué sucede si queremos hacer interés compuesto pero todos los meses agregamos un poquito más en el plazo para ayudarlo a crecer? Por ejemplo querés hacer interés compuesto con una inversión inicial de $100000 pero en vez de dejar que crezca sólo, decides aportar todos los meses $3000. Esta simulación te ayuda a predecir tu capital final utilizando este método. Se usa la fórmula (<span>1</span>) de la teoría repetidas veces y agregando una inversión mensual fija a partir del segundo plazo.",
         grafico: {
             label: "Capital total",
             title: "Simulación 5",

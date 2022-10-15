@@ -117,13 +117,13 @@ contenedores.forEach( simulacion => { // Itero sobre cada objeto que representa 
                 pResultado.innerHTML = `<p>Para obtener $${rendimiento} de rendimiento en ${dias} días con una TNA de ${tna}%, es necesario aportar con una inversión de <span class="resultadoNegrita">$${resultado}</span></p>`
             
             } else if (simulacion.id === "intCompuesto") {
-                pResultado.innerHTML = `<p>El interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}% y una inversión inicial de $${invInic} es de <span class="resultadoNegrita">$${redondear(resultado-invInic)}</span>. El capital total final es de <span class="resultadoNegrita">$${redondear(resultado)}</span></p>`
+                pResultado.innerHTML = `<p>El interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}% y una inversión inicial de $${invInic} es de <span class="resultadoNegrita">$${redondear(resultado-invInic)}</span></p> <p>El capital total final es de <span class="resultadoNegrita">$${redondear(resultado)}</span></p>`
             
             } else if (simulacion.id === "plazosNecesariosIntComp") {
                 pResultado.innerHTML = `<p>Considerando una TNA de ${tna}% y una inversión inicial de $${invInic}, haciendo interés compuesto se superan los $${capitalFinal} al cabo de <span class="resultadoNegrita">${resultado} plazos</span> de 30 días c/u (<span class="resultadoNegrita">${redondear(resultado*30/365)} años</span>)</p>`
             
             } else if (simulacion.id === "intCompuestoPlus") {
-                pResultado.innerHTML = `<p>Haciendo interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}%, una inversión inicial de $${invInic} y un agregado de $${invMensual} mensuales (a partir del segundo plazo) el capital total final es de <span class="resultadoNegrita">$${redondear(resultado)}</span>.\nCapital total aportado: <span class="resultadoNegrita">$${redondear(capitalAportado)}</span> - Intereses generados: <span class="resultadoNegrita">$${redondear(resultado-capitalAportado)}</span></p>`
+                pResultado.innerHTML = `<p>Haciendo interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}%, una inversión inicial de $${invInic} y un agregado de $${invMensual} mensuales (a partir del segundo plazo) el capital total final es de <span class="resultadoNegrita">$${redondear(resultado)}</span></p> <p>Capital total aportado: <span class="resultadoNegrita">$${redondear(capitalAportado)}</span> - Intereses generados: <span class="resultadoNegrita">$${redondear(resultado-capitalAportado)}</span></p>`
             
             } else if (simulacion.id === "plazosNecesariosIntCompPlus") {
                 pResultado.innerHTML = `<p>Haciendo interés compuesto considerando una TNA de ${tna}%, una inversión inicial de $${invInic}, y agregándole además $${invMensual}  mensuales, se superan los $${capitalFinal} después de <span class="resultadoNegrita">${cantPlazos} plazos</span> de 30 días c/u (<span class="resultadoNegrita">${redondear(cantPlazos*30/365)} años</span>)</p>`

@@ -18,6 +18,10 @@ header {
     align-items: center;
 }
 
+body {
+    background-color: rgb(190, 190, 255);
+}
+
 .noTerminado {
     font-weight: bold;
     color: rgb(0, 0, 0);
@@ -52,6 +56,7 @@ main {
 .duda a {
     text-decoration: none;
     color: rgb(0, 0, 255);
+    font-weight: bold;
 }
 
 .contenedor {
@@ -59,11 +64,12 @@ main {
     padding: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     text-align: center;
-    height: 400px;
     border: 5px solid rgb(0, 0, 0);
     border-radius: 10px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px rgb(0, 0, 0);
 }
 
 .tituloSimulacion {
@@ -76,43 +82,60 @@ main {
 }
 
 .contenedor form {
-    display: flex;
-    justify-content: space-evenly;
+    margin: 10px 0px;
 }
 
-.contenedor form div input {
-    margin-top: 5px;
+.contenedor form div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    column-gap: 1px;
+    row-gap: 10px;
+}
+
+.contenedor-input {
+    padding: 5px 0px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background-color: rgb(190, 190, 255);
+}
+
+.contenedor-input input {
     width: 200px;
     text-align: center;
     border: 1px solid rgb(0, 0, 0);
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 1.3rem;
+    background-color: rgb(250, 250, 250);
 }
 
-.contenedor form button {
-    width: 100px;
+.contenedor form button, .botonGrafico {
+    margin-top: 10px;
+    width: 125px;
+    height: 40px;
     border: 1px solid rgb(0, 0, 0);
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: rgb(220, 220, 220);
     transition: transform 0.1s;
     font-size: 1.3rem;
 }
 
-.contenedor form button:hover {
+.contenedor form button:hover, .botonGrafico:hover {
     background-color: rgb(180, 180, 180);
 }
 
-.contenedor form button:active {
+.contenedor form button:active, .botonGrafico:active {
     border: 2px solid rgb(0, 0, 0);
     transform: scale(0.95);
     background-color: rgb(200, 200, 200);
 }
 
-.contenedor div p {
-    text-align: center;
-}
-
 .seUsoLaFormula {
+    margin-top: 10px;
     text-align: start;
     font-size: 1.1rem;
 }
@@ -124,7 +147,8 @@ main {
 #teoria {
     padding: 5px;
     border: 5px solid rgb(0, 0, 0);
-    border-radius: 10px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px rgb(0, 0, 0);
 }
 
 #teoria h2 {
@@ -166,23 +190,22 @@ main {
     font-weight: 700;
 }
 
-.botonGrafico {
-    margin-top: 10px;
-    width: 125px;
-    height: 40px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 8px;
-    background-color: rgb(220, 220, 220);
-    transition: transform 0.1s;
-    font-size: 1.3rem;
+@media screen and (max-width: 560px){
+    main {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
 }
 
-.botonGrafico:hover {
-    background-color: rgb(180, 180, 180);
-}
-
-.botonGrafico:active {
-    border: 2px solid rgb(0, 0, 0);
-    transform: scale(0.95);
-    background-color: rgb(200, 200, 200);
+@media screen and (max-width: 718px){
+    .tituloSimulacion, #teoria h2 {
+        font-size: 1.4rem;
+    }
+    
+    .duda {
+        font-size: 1.1rem;
+    }
 }
