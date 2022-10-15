@@ -157,12 +157,18 @@ contenedores.forEach( simulacion => { // Itero sobre cada objeto que representa 
                     ejeX.push(ejeX_[ejeX_.length-1])
                     ejeY.push(ejeY_[ejeY_.length-1])
                 }
-         
-                Swal.fire({ // Creo la alerta con el canvas donde irá el gráfico
-                    html: '<canvas id="grafico" width="1000" height="600"></canvas>',
-                    width: "60vw"
-                })
                 
+                let anchoAlerta
+                if (window.innerWidth < 1080) { // Cambio el tamaño de la alerta según sea el ancho de la pantalla al momento de activarla
+                    anchoAlerta = "96vw"
+                } else {
+                    anchoAlerta = "75vw"
+                }
+                Swal.fire({
+                    html: '<canvas id="grafico"></canvas>',
+                    width: anchoAlerta
+                })
+
                 if (simulacion.id === "rendTradic") {
                     ejeX.forEach(valor => {
                         ejeY.push(obtenerRendTradic(invInic, tna, valor))
