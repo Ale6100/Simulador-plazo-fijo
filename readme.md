@@ -20,7 +20,7 @@ Ejecuta el código con Live Server y listo!
 
 ## Simulaciones
 
-A continuación describo brevemente la funcionalidad de cada simulación. Todas usan como base a las fórmulas improvisadas por mí que están descriptas en la sección "Teoría".
+A continuación describo brevemente la funcionalidad de cada simulación. Todas usan como base a las fórmulas improvisadas por mí que están descritas en la sección "Teoría".
 
 * Simulación 1: Este es el típico cálculo que se encuentra por internet que predice el rendimiento de un plazo fijo en una cantidad determinada de días.
 

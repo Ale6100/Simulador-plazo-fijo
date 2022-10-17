@@ -27,13 +27,13 @@ const contenedores = [
         id: "rendTradic",
         placeholder: {
             invInic: "100000",
-            tna: "55",
+            tna: "75",
             dias: "30",
         },
         comentario: "Se usa la fórmula (<span>2</span>) de la teoría",
         grafico: {
             label: "Rendimiento",
-            title: "Simulación 1",
+            title: "Simulación 1 - Rendimiento generado en distintos plazos de tiempo",
             textX: "Tiempo (días)",
             textY: "Rendimiento ($)"
         }
@@ -43,13 +43,13 @@ const contenedores = [
         id: "invRequerida",
         placeholder: {
             rendEsp: "1000",
-            tna: "55",
+            tna: "75",
             dias: "30",
         },
         comentario: "Se usa la fórmula (<span>3</span>) de la teoría",
         grafico: {
             label: "Inversión requerida",
-            title: "Simulación 2 - Inversión requerida para obtener el rendimiento solicitado considerando distintos plazos de tiempo",
+            title: "Simulación 2 - Inversión requerida para obtener el rendimiento solicitado en distintos plazos de tiempo",
             textX: "Tiempo (días)",
             textY: "Inversión requerida ($)"
         }
@@ -59,13 +59,13 @@ const contenedores = [
         id: "intCompuesto",
         placeholder: {
             invInic: "100000",
-            tna: "55",
+            tna: "75",
             plazos: "12",
         },
         comentario: "Se usa la fórmula (<span>4</span>) de la teoría",
         grafico: {
             label: "Capital total",
-            title: "Simulación 3",
+            title: "Simulación 3 - Capital total haciendo interés compuesto",
             textX: "Cantidad de plazos fijos",
             textY: "Capital total ($)"
         }
@@ -75,7 +75,7 @@ const contenedores = [
         id: "plazosNecesariosIntComp",
         placeholder: {
             invInic: "100000",
-            tna: "55",
+            tna: "75",
             capFinal: "200000",
         },
         comentario: "Se usa la fórmula (<span>5</span>) de la teoría y luego se aplica la función techo (se redondea para arriba) ya que si por ejemplo el resultado es 6.8 plazos, en realidad serían 7",
@@ -91,14 +91,14 @@ const contenedores = [
         id: "intCompuestoPlus",
         placeholder: {
             invInic: "100000",
-            tna: "55",
+            tna: "75",
             plazos: "12",
             aporte: "3000"
         },
         comentario: "¿Qué sucede si queremos hacer interés compuesto pero todos los meses agregamos un poquito más en el plazo para ayudarlo a crecer? Por ejemplo querés hacer interés compuesto con una inversión inicial de $100000 pero en vez de dejar que crezca sólo, decides aportar todos los meses $3000. Esta simulación te ayuda a predecir tu capital final utilizando este método. Se usa la fórmula (<span>1</span>) de la teoría repetidas veces y agregando una inversión mensual fija a partir del segundo plazo.",
         grafico: {
             label: "Capital total",
-            title: "Simulación 5",
+            title: "Simulación 5 - Capital total haciendo interés compuesto plus",
             textX: "Cantidad de plazos fijos",
             textY: "Capital total ($)"
         }
@@ -108,7 +108,7 @@ const contenedores = [
         id: "plazosNecesariosIntCompPlus",
         placeholder: {
             invInic: "100000",
-            tna: "55",
+            tna: "75",
             capFinal: "200000",
             aporte: "3000"
         },
