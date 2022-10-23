@@ -9,12 +9,12 @@ const valoresIncorrectos = (texto) => {
         position: "right",
         stopOnFocus: true,
         style: {
-          background: "rgb(210, 210, 210, 0.95)",
-          color : "rgb(0, 0, 0)",
-          fontWeight: "bold",
-          border : "2px solid rgb(255, 0, 0)",
-          borderRadius : "5px",
-          fontSize : "1.2rem"
+            background: "rgb(210, 210, 210, 0.95)",
+            color : "rgb(0, 0, 0)",
+            fontWeight: "bold",
+            border : "2px solid rgb(255, 0, 0)",
+            borderRadius : "5px",
+            fontSize : "1.2rem"
         }
     }).showToast();
 }

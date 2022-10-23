@@ -169,6 +169,25 @@ contenedores.forEach( simulacion => { // Itero sobre cada objeto que representa 
                     width: anchoAlerta
                 })
 
+                if (window.innerWidth < window.innerHeight) { // Se ejecuta si el alto de la pantalla es más grande que el ancho. En esos casos el gráfico podría verse aplastado, por eso se sugiere rotar el dispositivo.
+                    Toastify({
+                        text: "Sugerencia: El gráfico se verá mejor si rotas tu dispositivo",
+                        duration: 3000,
+                        close: true,
+                        gravity: "top",
+                        position: "right",
+                        stopOnFocus: true,
+                        style: {
+                            background: "rgb(100, 220, 100)",
+                            color : "rgb(0, 0, 0)",
+                            fontWeight: "bold",
+                            border : "2px solid rgb(0, 255, 0)",
+                            borderRadius : "5px",
+                            fontSize : "1rem"
+                        }
+                    }).showToast();
+                }
+
                 if (simulacion.id === "rendTradic") {
                     ejeX.forEach(valor => {
                         ejeY.push(obtenerRendTradic(invInic, tna, valor))
