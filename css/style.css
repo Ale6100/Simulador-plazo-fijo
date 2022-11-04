@@ -22,15 +22,6 @@ body {
     background-color: rgb(190, 190, 255);
 }
 
-.noTerminado {
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-    font-size: 0.75rem;
-    position: fixed;
-    left: 1vw;
-    top: 1vh;
-}
-
 header div {
     width: 40px;
 }
@@ -50,6 +41,7 @@ main {
 }
 
 .duda {
+    padding: 0px 10px;
     margin-bottom: 10px;
 }
 
@@ -61,7 +53,7 @@ main {
 
 .contenedor {
     margin-bottom: 50px;
-    padding: 5px;
+    padding: 5px 5px 10px 5px;
     display: flex;
     flex-direction: column;
     text-align: center;

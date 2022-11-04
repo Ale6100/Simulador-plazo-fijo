@@ -1,4 +1,4 @@
-# Simulador de plazo fijo (no terminado)
+# Simulador de plazo fijo
 
 Bienvenido! Creé este código donde por el momento tengo seis simulaciones que te ayudarán a anticiparte y formar estrategias en caso de que desees hacer un plazo fijo tradicional. Pudes conocer el sitio subido a la web [aquí](https://simuladorplazofijo.netlify.app/). Para más info ve a **Simulaciones**.
 
@@ -39,6 +39,8 @@ A continuación describo brevemente la funcionalidad de cada simulación. Todas 
 * HTML
 * CSS
 * JavaScript
+* [Sweet Alert 2](https://sweetalert2.github.io/)
+* [Toastify](https://apvarun.github.io/toastify-js/)
 
 ## Autores ✒️
 

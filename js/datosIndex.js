@@ -112,7 +112,7 @@ const contenedores = [
             capFinal: "200000",
             aporte: "3000"
         },
-        comentario: "Se usa la fórmula (<span>1</span>) repetidas veces hasta encontrar el valor que cumpla con la condición pedida",
+        comentario: "Se usa la fórmula (<span>1</span>) de la teoría repetidas veces hasta encontrar el valor que cumpla con la condición pedida",
         grafico: {
             label: "Plazos fijos necesarios",
             title: "Simulación 6 - Cantidad de plazos fijos necesarios para igualar a los distintos capitales del eje horizontal",
