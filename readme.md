@@ -39,9 +39,11 @@ A continuación describo brevemente la funcionalidad de cada simulación. Todas 
 * HTML
 * CSS
 * JavaScript
+* [Chart.js](https://www.chartjs.org/)
+* [MathJax](https://www.mathjax.org/)
+* [Polyfill.io](https://polyfill.io/v3/)
 * [Sweet Alert 2](https://sweetalert2.github.io/)
 * [Toastify](https://apvarun.github.io/toastify-js/)
-
 ## Autores ✒️
 
 * **Alejandro Portaluppi** - [LinkedIn](https://www.linkedin.com/in/alejandro-portaluppi/)
