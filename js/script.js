@@ -172,7 +172,7 @@ contenedores.forEach( simulacion => { // Itero sobre cada objeto que representa 
                 if (window.innerWidth < window.innerHeight) { // Se ejecuta si el alto de la pantalla es más grande que el ancho. En esos casos el gráfico podría verse aplastado, por eso se sugiere rotar el dispositivo.
                     Toastify({
                         text: 'Sugerencia: El gráfico se verá mejor si rotas tu dispositivo y luego vuelves a presionar sobre "Ver gráfico"',
-                        duration: 3000,
+                        duration: 10000,
                         close: true,
                         gravity: "top",
                         position: "right",
