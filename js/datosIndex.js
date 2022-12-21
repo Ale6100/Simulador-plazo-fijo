@@ -23,7 +23,7 @@ const propComunes = {
 
 const contenedores = [
     {
-        titulo: "<span>Simulación 1</span>: Rendimiento en t días",
+        titulo: "<span>Simulación 1:</span> Rendimiento en t días",
         id: "rendTradic",
         placeholder: {
             invInic: "100000",
@@ -39,7 +39,7 @@ const contenedores = [
         }
     },
     {
-        titulo: "<span>Simulación 2</span>: Inversión necesaria para obtener un rendimiento esperado",
+        titulo: "<span>Simulación 2:</span> Inversión necesaria para obtener un rendimiento esperado",
         id: "invRequerida",
         placeholder: {
             rendEsp: "1000",
@@ -55,7 +55,7 @@ const contenedores = [
         }
     },
     {
-        titulo: "<span>Simulación 3</span>: Interés compuesto (renovación de capital + interés)",
+        titulo: "<span>Simulación 3:</span> Interés compuesto (renovación de capital + interés)",
         id: "intCompuesto",
         placeholder: {
             invInic: "100000",
@@ -71,7 +71,7 @@ const contenedores = [
         }
     },
     {
-        titulo: "<span>Simulación 4</span>: Plazos fijos necesarios haciendo interés compuesto",
+        titulo: "<span>Simulación 4:</span> Plazos fijos necesarios haciendo interés compuesto",
         id: "plazosNecesariosIntComp",
         placeholder: {
             invInic: "100000",
@@ -87,7 +87,7 @@ const contenedores = [
         }
     },
     {
-        titulo: "<span>Simulación 5</span>: Interés compuesto plus",
+        titulo: "<span>Simulación 5:</span> Interés compuesto plus",
         id: "intCompuestoPlus",
         placeholder: {
             invInic: "100000",
@@ -104,7 +104,7 @@ const contenedores = [
         }
     },
     {
-        titulo: "<span>Simulación 6</span>: Plazos fijos necesarios haciendo interés compuesto plus",
+        titulo: "<span>Simulación 6:</span> Plazos fijos necesarios haciendo interés compuesto plus",
         id: "plazosNecesariosIntCompPlus",
         placeholder: {
             invInic: "100000",
