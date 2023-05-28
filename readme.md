@@ -8,7 +8,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 ### Pre-requisitos 📋
 
-Necesitas ejecutar el archivo desde un servidor. En caso de que tengas Visual Studio Code puedes utilizar la extensión Live Server.
+Necesitas ejecutar el archivo desde un servidor. En caso de que tengas Visual Studio Code puedes utilizar la extensión [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
 ### Instalación 🔧
 
@@ -34,6 +34,8 @@ A continuación describo brevemente la funcionalidad de cada simulación. Todas 
 
 * Simulación 6: Igual que la simulación 4, pero agregando un monto fijo bajo el mismo razonamiento que el utilizado en la simulación 5.
 
+Deseas que agregue otra simulación personalizada? Pídela y lo haré! alejandro_portaluppi@outlook.com
+
 ## Construido con 🛠️
 
 * HTML
@@ -44,6 +46,6 @@ A continuación describo brevemente la funcionalidad de cada simulación. Todas 
 * [Polyfill.io](https://polyfill.io/v3/)
 * [Sweet Alert 2](https://sweetalert2.github.io/)
 * [Toastify](https://apvarun.github.io/toastify-js/)
-## Autores ✒️
+## Autor ✒️
 
 * **Alejandro Portaluppi** - [LinkedIn](https://www.linkedin.com/in/alejandro-portaluppi/)

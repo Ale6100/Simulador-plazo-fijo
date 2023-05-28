@@ -1,4 +1,5 @@
 // Los siguientes dos objetos contienen propiedades que luego coloco en el index
+const tnaPlaceholder = "80"
 
 const propComunes = {
     input: {
@@ -27,7 +28,7 @@ const contenedores = [
         id: "rendTradic",
         placeholder: {
             invInic: "100000",
-            tna: "75",
+            tna: tnaPlaceholder,
             dias: "30",
         },
         comentario: "Se usa la fórmula (<span>2</span>) de la teoría",
@@ -43,7 +44,7 @@ const contenedores = [
         id: "invRequerida",
         placeholder: {
             rendEsp: "1000",
-            tna: "75",
+            tna: tnaPlaceholder,
             dias: "30",
         },
         comentario: "Se usa la fórmula (<span>3</span>) de la teoría",
@@ -59,7 +60,7 @@ const contenedores = [
         id: "intCompuesto",
         placeholder: {
             invInic: "100000",
-            tna: "75",
+            tna: tnaPlaceholder,
             plazos: "12",
         },
         comentario: "Se usa la fórmula (<span>4</span>) de la teoría",
@@ -75,7 +76,7 @@ const contenedores = [
         id: "plazosNecesariosIntComp",
         placeholder: {
             invInic: "100000",
-            tna: "75",
+            tna: tnaPlaceholder,
             capFinal: "200000",
         },
         comentario: "Se usa la fórmula (<span>5</span>) de la teoría y luego se aplica la función techo (se redondea para arriba) ya que si por ejemplo el resultado es 6.8 plazos, en realidad serían 7",
@@ -91,7 +92,7 @@ const contenedores = [
         id: "intCompuestoPlus",
         placeholder: {
             invInic: "100000",
-            tna: "75",
+            tna: tnaPlaceholder,
             plazos: "12",
             aporte: "3000"
         },
@@ -108,7 +109,7 @@ const contenedores = [
         id: "plazosNecesariosIntCompPlus",
         placeholder: {
             invInic: "100000",
-            tna: "75",
+            tna: tnaPlaceholder,
             capFinal: "200000",
             aporte: "3000"
         },
