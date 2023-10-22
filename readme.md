@@ -8,15 +8,23 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 ### Pre-requisitos 📋
 
-Necesitas ejecutar el archivo desde un servidor. En caso de que tengas Visual Studio Code puedes utilizar la extensión [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
+Necesitas tener previamente descargado e instalado [NodeJs](https://nodejs.org/).
 
 ### Instalación 🔧
 
-Ninguna!
+Instala las dependencias con el comando
+
+```
+npm install
+```
 
 ## Despliegue 📦
 
-Ejecuta el código con Live Server y listo!
+Corre el proyecto con el comando
+
+```
+npm run dev
+```
 
 ## Simulaciones
 
@@ -38,14 +46,15 @@ Deseas que agregue otra simulación personalizada? Pídela y lo haré! alejandro
 
 ## Construido con 🛠️
 
-* HTML
 * CSS
-* JavaScript
-* [Chart.js](https://www.chartjs.org/)
-* [MathJax](https://www.mathjax.org/)
-* [Polyfill.io](https://polyfill.io/v3/)
-* [Sweet Alert 2](https://sweetalert2.github.io/)
-* [Toastify](https://apvarun.github.io/toastify-js/)
+* [TypeScript](typescriptlang.org)
+* [ReactJS](https://reactjs.org/)
+* [NodeJs](https://nodejs.org/)
+* [Tailwind](https://tailwindcss.com/)
+* [Vite](https://vitejs.dev/)
+* [echarts](https://echarts.apache.org/)
+* [react-katex](https://www.npmjs.com/package/react-katex)
+
 ## Autor ✒️
 
 * **Alejandro Portaluppi** - [LinkedIn](https://www.linkedin.com/in/alejandro-portaluppi/)
