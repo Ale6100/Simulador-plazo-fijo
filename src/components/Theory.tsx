@@ -25,7 +25,9 @@ const Theory = () => {
 
             <p className='my-2'>Si restamos <InlineMath math={'x_{o}'} /> en ambos lados de la igualdad para ignorar la inversión inicial, obtenemos</p>
 
-            <BlockMath math={'{R(t) = x(t) - x_{o}} = x_{o} \\left( 1 + \\frac{\\alpha*0.01}{365}t \\right) - x_{o}'} />
+            <div className='max-sm:text-xs'>
+                <BlockMath math={'{R(t) = x(t) - x_{o}} = x_{o} \\left( 1 + \\frac{\\alpha*0.01}{365}t \\right) - x_{o}'} />
+            </div>
 
             <div className='my-2 flex justify-center items-center relative'>
                 <div className='px-2 border border-black rounded-sm bg-slate-200'>
@@ -57,11 +59,15 @@ const Theory = () => {
 
             <p className='my-2'>Para saber cuánto se tendrá al finalizar el segundo plazo podemos usar un razonamiento similar, considerando que se utiliza como inversión inicial al capital devuelto por el primer plazo</p>
 
-            <BlockMath math={'x_2 = x_1 \\left( 1 + \\frac{\\alpha*0.01}{365}30 \\right) = x_o \\left( 1 + \\frac{\\alpha*0.01}{365}30 \\right)^2'} />
+            <div className='max-sm:text-xs'>
+                <BlockMath math={'x_2 = x_1 \\left( 1 + \\frac{\\alpha*0.01}{365}30 \\right) = x_o \\left( 1 + \\frac{\\alpha*0.01}{365}30 \\right)^2'} />
+            </div>
 
             <p className='my-2'>Para el tercer plazo fijo será</p>
 
-            <BlockMath math={'x_3 = x_2 \\left( 1 + \\frac{\\alpha*0.01}{365}30 \\right) = x_o \\left( 1 + \\frac{\\alpha*0.01}{365}30 \\right)^3'} />
+            <div className='max-sm:text-xs'>
+                <BlockMath math={'x_3 = x_2 \\left( 1 + \\frac{\\alpha*0.01}{365}30 \\right) = x_o \\left( 1 + \\frac{\\alpha*0.01}{365}30 \\right)^3'} />
+            </div>
 
             <p className="my-2">Podemos notar cierto patrón y decir que en el plazo <InlineMath math={'n'} />-ésimo el capital será de</p>
 
