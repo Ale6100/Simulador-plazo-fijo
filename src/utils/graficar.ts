@@ -54,7 +54,7 @@ export const graficar = (ejeX: number[], ejeY: number[], divGrafico: React.Mutab
             boundaryGap: false,
             data: ejeX
         },
-        yAxis: {                
+        yAxis: {
             type: 'value',
             boundaryGap: false,
             min: 'dataMin',
@@ -70,7 +70,7 @@ export const graficar = (ejeX: number[], ejeY: number[], divGrafico: React.Mutab
                 start: 0,
                 end: 10
             }
-        ],           
+        ],
         series: [
             {
                 name: grafico.label,
@@ -97,11 +97,11 @@ export const graficar = (ejeX: number[], ejeY: number[], divGrafico: React.Mutab
                     data: [
                         {type: 'average', name: 'Promedio'}
                     ]
-                }                    
+                }
             }
         ]
     };
-    
+
     option && myChart.setOption(option);
 
     setGraficado(true)

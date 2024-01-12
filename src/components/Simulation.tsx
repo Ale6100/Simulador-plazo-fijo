@@ -28,8 +28,8 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
             Object.defineProperty(values, key, { value: form[key].value })
         })
 
-        const id = form.dataset.id      
-        
+        const id = form.dataset.id
+
         const invInic_ = values["invInic"]
         const tna_ = values["tna"]
         const dias_ = values["dias"]
@@ -50,10 +50,10 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
 
         if ((invInic_+tna_+dias_+rendimiento_+capitalFinal_+plazos_+invMensual_).includes(",")) {
             return valoresIncorrectos("Los valores no deben tener comas! si quieres decimales puedes poner puntos")
-        
+
         } else if ((invInic_+tna_+dias_+rendimiento_+capitalFinal_+plazos_+invMensual_).includes("-")) {
             return valoresIncorrectos("Los valores no deben ser negativos!")
-        
+
         } else if ((""+dias_).includes(".")) {
             return valoresIncorrectos("Los días solo pueden ser números enteros!")
 
@@ -64,7 +64,7 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
         if (!tna) {
             return valoresIncorrectos("La Tasa Nominal Anual debe ser positiva")
         }
-        
+
         const ejeX: number[] = []
         const ejeY: number[] = []
 
@@ -83,7 +83,7 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
             setTextoResutado(`El rendimiento en ${dias} días considerando una TNA de ${tna}%, y una inversión inicial de $${invInic} es de $${resultado}`)
 
             ejeX.push(...crearEjeX(0, dias));
-            
+
             ejeX.forEach(num => {
                 ejeY.push(obtenerRendTradic(invInic2, tna2, num))
             })
@@ -91,16 +91,16 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
             if (!rendimiento) {
                 return valoresIncorrectos("El rendimiento esperado debe ser positivo")
             }
-            
+
             if (!dias) {
                 return valoresIncorrectos('"días" debe ser un número positivo')
-            }     
+            }
 
             const rendimiento2 = rendimiento, tna2 = tna
             const resultado = obtenerInvRequerida(rendimiento, tna, dias)
 
             setTextoResutado(`Para obtener $${rendimiento} de rendimiento en ${dias} días con una TNA de ${tna}%, es necesario aportar con una inversión de $${resultado}`)
-        
+
             ejeX.push(...crearEjeX(1, dias));
 
             ejeX.forEach(valor => {
@@ -119,7 +119,7 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
             const resultado = obtenerCapitalHaciendoInteresCompuesto(invInic, tna, plazos)
 
             setTextoResutado(`El interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}% y una inversión inicial de $${invInic} es de $${redondear(resultado-invInic)}. El capital total final es de $${redondear(resultado)}`)
-        
+
             ejeX.push(...crearEjeX(0, plazos));
 
             ejeX.forEach(valor => {
@@ -144,7 +144,7 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
             setTextoResutado(`Considerando una TNA de ${tna}% y una inversión inicial de $${invInic}, haciendo interés compuesto se superan los $${capitalFinal} al cabo de ${resultado} plazos de 30 días c/u (${redondear(resultado*30/365)} años)`)
 
             const ejeX_: number[] = []
-            
+
             ejeX_.push(...crearEjeX(0, resultado));
 
             // Decido intercambiar de lugar los ejes para que el gráfico sea más acorde
@@ -172,7 +172,7 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
 
             ejeX.push(0)
             ejeY.push(invInic)
-            
+
             let resultado = 0
             for (let i=0; i<plazos; i++) {
                 if (i===0) {
@@ -183,9 +183,9 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
                 ejeX.push(i+1)
                 ejeY.push(redondear(resultado))
             }
-            
+
             const capitalAportado = invInic + (plazos-1)*invMensual
-            
+
             setTextoResutado(`Haciendo interés compuesto con ${plazos} plazos fijos de 30 días c/u considerando una TNA de ${tna}%, una inversión inicial de $${invInic} y un agregado de $${invMensual} mensuales (a partir del segundo plazo) el capital total final es de $${redondear(resultado)}. Capital total aportado: $${redondear(capitalAportado)} - Intereses generados: $${redondear(resultado-capitalAportado)}`)
         } else if (id === "plazosNecesariosIntCompPlus") {
             if (!invInic) {
@@ -207,7 +207,7 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
                     return valoresIncorrectos("La inversión mensual debe ser positiva o cero!")
                 }
             }
-            
+
             if (invInic === 0 && capitalFinal === 0) {
                 return valoresIncorrectos("La inversión inicial y la mensual no deben ser cero al mismo tiempo!")
             }
@@ -216,7 +216,7 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
             let resultado = invInic
             ejeX.push(resultado)
             ejeY.push(cantPlazos)
-            
+
             while (resultado <= capitalFinal) { // Itera hasta que la cantidad de plazos sean los necesarios como para que el capital total (resultado) sea mayor al capitalFinal solicitado
                 if (cantPlazos === 0) {
                     resultado = obtenerCapitTotal(invInic, tna, 30)
@@ -234,7 +234,7 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
         graficar(ejeX, ejeY, divGrafico, grafico, setGraficado)
     }
 
-    const AddInput = ({ clave }: { clave: keyof TypeSimulation["placeholder"] }) => {        
+    const AddInput = ({ clave }: { clave: keyof TypeSimulation["placeholder"] }) => {
         return (
             <div className="p-2 border border-black rounded-sm w-64 bg-slate-200">
                 <p className="text-center text-lg">{propComunes.texto[clave]}</p>
@@ -246,19 +246,19 @@ const Simulation = ({ titulo, id, placeholder, comentario, grafico }: TypeSimula
     return (
         <>
         <h2 className="text-center text-2xl text-blue-600 font-semibold">{titulo}</h2>
-        
+
         <form onSubmit={handleSubmit} data-id={id} className="my-2 flex flex-col">
             <div className="flex justify-evenly flex-wrap gap-y-2">
                 {
                     keysPlaceholder.map((key) => (
-                        <AddInput key={key} clave={key}/>                        
+                        <AddInput key={key} clave={key}/>
                     ))
                 }
             </div>
 
-            <button className="mx-auto mt-3 w-24 h-9 text-lg bg-blue-500 hover:bg-blue-600 text-white rounded-sm" type="submit">Calcular</button>
+            <button className="mx-auto mt-3 w-24 h-9 text-lg bg-blue-500 hover:bg-blue-600 text-black rounded-sm" type="submit">Calcular</button>
         </form>
-        
+
         {graficado || <p className="text-center">Coloque los valores solicitados y presione en "Calcular"</p>}
 
         <div ref={divGrafico} className="grafico w-full"></div>

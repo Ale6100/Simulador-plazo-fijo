@@ -4,7 +4,7 @@ const NavBar = () => {
             <div className="w-10 max-md:w-8">
                 <img src="/img/icon.svg" alt="logo"/>
             </div>
-            
+
             <h1 className="ml-2 text-3xl text-white max-md:text-2xl">Simulador de plazo fijo</h1>
         </header>
     )
